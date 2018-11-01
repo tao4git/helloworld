@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理系统</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/xadmin.css">
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="layui/layui.all.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/xadmin.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body class="login-bg">
+    
+    <div class="login layui-anim layui-anim-up">
+        <div class="message">管理系统登录</div>
+        <div id="darkbannerwrap"></div>
+        
+        <form id="userLogin" action="" class="layui-form" >
+            <input name="userName" id="userName" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+            <hr class="hr15">
+            <input id="pwd" placeholder="密码"  lay-verify="required" type="password" class="layui-input">
+            <!--<input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">-->
+            <input id="userPwd" name="userPwd" type="hidden">
+            <hr class="hr15">
+            <input value="登录" lay-filter="login" style="width:100%;" type="button" onclick="doLogin()">
+            <hr class="hr20" >
+        </form>
+    </div>
+
+    <script>
+//          var layer = layui.layer;
+//          var form = layer.form;
+          // layer.msg('玩命卖萌中', function(){
+          //   //关闭后的操作
+          //   });
+          ;!function(){
+              //无需再执行layui.use()方法加载模块，直接使用即可
+              var form = layui.form
+                  ,layer = layui.layer;
+          }();
+
+            $('#pwd').on('keypress',function(event){
+
+            });
+
+    </script>
+    <!-- 底部结束 -->
+</body>
+</html>

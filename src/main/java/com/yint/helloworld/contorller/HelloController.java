@@ -3,33 +3,22 @@ package com.yint.helloworld.contorller;
 
 import com.alibaba.fastjson.JSON;
 import com.yint.helloworld.common.HttpUtils;
-import com.yint.helloworld.common.UserLoalCache;
-import com.yint.helloworld.domain.*;
+import com.yint.helloworld.domain.ResponseData;
+import com.yint.helloworld.domain.TushareBo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 public class HelloController {
 
+    @RequestMapping("/")
+    public String login(){
+        return "login";
+    }
 
-    @RequestMapping({"/","/hello"})
-    @ResponseBody
-    public String hello(){
-        User user = UserLoalCache.getUser("yint");
-        System.out.println("test:"+user);
-        if(null == user){
-            user = new User();
-            user.setUname("yint");
-            user.setStatus("0");
-            UserLoalCache.saveUser(user);
-        }
-        return "hello,world，李浩然"+user;
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
     }
 
     public static void main(String[] args) {

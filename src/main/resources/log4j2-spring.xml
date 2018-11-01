@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+
+    <properties>
+        <property name="patternlayout">%d [%t] %-5p [%c] [%L] - %m%n</property>
+        <property name="LOG_LEVEL">info</property>
+        <Property name="log_path">/export/Logs/share</Property>
+    </properties>
+
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternlayout}" />
+        </console>
+        <!-- 全局日志 -->
+        <RollingFile name="RootRollingFile" fileName="${log_path}/global.log" filePattern="${log_path}/$${date:yyyy-MM}/global-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${patternlayout}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <!-- 配置mongdb appender -->
+    </appenders>
+
+    <loggers>
+        <!--过滤掉spring和hibernate的一些无用的debug信息 -->
+        <Root level="info">
+            <AppenderRef ref="RootRollingFile"/>
+        </Root>
+
+        <!--ibatis begin-->
+        <logger name="com.yt.share.dao.*" level="TRACE" additivity="false">
+            <AppenderRef ref="Console"/>
+        </logger>
+        <!--ibatis end-->
+
+    </loggers>
+
+</Configuration>
