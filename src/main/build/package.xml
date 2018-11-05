@@ -17,6 +17,7 @@
             <outputDirectory>${file.separator}</outputDirectory>
             <excludes>
                 <exclude>xml/**</exclude>
+                <exclude>static/**</exclude>
                 <exclude>mapper/**</exclude>
                 <exclude>templates/**</exclude>
                 <exclude>*.dtd</exclude>

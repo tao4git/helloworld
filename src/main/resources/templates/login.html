@@ -1,56 +1,140 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>管理系统</title>
-	<meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <link rel="stylesheet" href="css/font.css">
-	<link rel="stylesheet" href="css/xadmin.css">
-    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="layui/layui.all.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/xadmin.js"></script>
-    <script type="text/javascript">
-
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>后台登录</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <link rel="stylesheet" href="./layui/css/layui.css" />
+    <link rel="stylesheet" href="./css/login.css" />
 </head>
-<body class="login-bg">
-    
-    <div class="login layui-anim layui-anim-up">
-        <div class="message">管理系统登录</div>
-        <div id="darkbannerwrap"></div>
-        
-        <form id="userLogin" action="" class="layui-form" >
-            <input name="userName" id="userName" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
-            <hr class="hr15">
-            <input id="pwd" placeholder="密码"  lay-verify="required" type="password" class="layui-input">
-            <!--<input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">-->
-            <input id="userPwd" name="userPwd" type="hidden">
-            <hr class="hr15">
-            <input value="登录" lay-filter="login" style="width:100%;" type="button" onclick="doLogin()">
-            <hr class="hr20" >
+
+<body>
+<div class="layui-container">
+    <div class="layadmin-user-login-main center">
+       <form id="login" class="layadmin-user-login-box layadmin-user-login-body layui-form">
+            <div class="layui-form-item">
+                <!--<div class="logo">
+                    <img src="https://spring.io/img/homepage/icon-spring-cloud-data-flow.svg" />
+                </div>-->
+                <h3 class="title">后台管理系统</h3>
+            </div>
+            <div class="layui-form-item">
+                <input name="username" lay-verify="required" placeholder="账号" class="my-layui-input" type="text">
+            </div>
+            <div class="layui-form-item">
+                <input name="password" lay-verify="required|password" placeholder="密码" class="my-layui-input" type="password">
+            </div>
+            <!--<div class="layui-form-item">
+                <div class="layui-row">
+                    <div class="layui-col-xs7">
+                        <input type="hidden" name="code" />
+                        <input type="text" name="codeStr" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="my-layui-input">
+                    </div>
+                    <div class="layui-col-xs5">
+                        <div style="margin-left: 10px;">
+                            <img id="codeImg" src="https://www.oschina.net/action/user/captcha" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="layui-form-item">
+                <button class="my-layui-btn" lay-submit lay-filter="LAY-user-login-submit">Login</button>
+            </div>
         </form>
     </div>
-
-    <script>
-//          var layer = layui.layer;
-//          var form = layer.form;
-          // layer.msg('玩命卖萌中', function(){
-          //   //关闭后的操作
-          //   });
-          ;!function(){
-              //无需再执行layui.use()方法加载模块，直接使用即可
-              var form = layui.form
-                  ,layer = layui.layer;
-          }();
-
-            $('#pwd').on('keypress',function(event){
-
-            });
-
-    </script>
-    <!-- 底部结束 -->
+</div>
 </body>
+<script type="text/javascript" src="./layui/layui.js"></script>
+<!--<script type="text/javascript" src="./js/public.js"></script>-->
+<!--<script type="text/javascript">
+    layui.use(['layer', 'form', 'element', 'jquery'], function() {
+        var layer = layui.layer,
+            element = layui.element,
+            form = layui.form,
+            $ = layui.$;
+        form.render();
+        //initData();
+        // $("#codeImg").click(function(){
+        //     initVerifyCode();
+        // });
+        //提交
+        form.on('submit(LAY-user-login-submit)', function(data) {
+            var user_data = JSON.stringify(data.field);
+            $.ajax({
+                url: IP + '/api/blog-oauth2/oauth2/login',
+                contentType: "application/x-www-form-urlencoded",
+                headers: {
+                    'Authorization': ''
+                },
+                data: $('#login').serialize(),
+                success: function(result, status, xhr) {
+                    layer.closeAll('loading');
+                    localStorage.setItem("access_token", result.access_token)
+                    localStorage.setItem("token_type", result.token_type)
+                    localStorage.setItem("refresh_token", result.refresh_token)
+                    localStorage.setItem("expires_in", result.expires_in)
+                    localStorage.setItem("scope", result.scope)
+                    layer.msg("登录成功", {
+                        icon: 1,
+                        time: 1000
+                    }, function() {
+                        parent.window.location.href = 'index.html'
+                    });
+                }
+            });
+            return false;
+        });
+        form.verify({
+            password: [
+                /^[\S]{5,16}$/, '密码必须5到16位，且不能出现空格'
+            ]
+        });
+        //校验
+        function initData() {
+            // checkAccessToken();
+            //初始化验证码
+            // initVerifyCode();
+        }
+
+        function checkAccessToken() {
+            var access_token = localStorage.getItem("access_token");
+            if(access_token != null && access_token.trim().length != 0) {
+                $.ajax({
+                    type: 'GET',
+                    headers: {
+                        'Authorization': localStorage.getItem("access_token") == null ? "" : "Bearer " + localStorage.getItem("access_token")
+                    },
+                    async: false,
+                    url: IP + '/api/blog-oauth2/get_user_info',
+                    success: function(data) {
+                        parent.window.location.href = 'index.html';
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        if(xhr.status == 401) {
+                            localStorage.removeItem("access_token");
+                        }
+                    }
+                });
+            }
+        }
+
+        function initVerifyCode() {
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: IP + '/api/blog-oauth2/oauth2/verCode?histCode='+$("input[name='code']").val(),
+                success: function(data) {
+                    layer.closeAll('loading');
+                    $("input[name='code']").val(data.code);
+                    $("#codeImg").attr('src',data.codeStr);
+                }
+            });
+        }
+    });
+</script>-->
+
 </html>

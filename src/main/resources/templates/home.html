@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人博客~JAVA之路</title>
+    <meta name="keywords" content="个人博客,spring" />
+    <meta name="description" content="个人博客" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="bookmark" href="/favicon.ico" />
+    <link rel="stylesheet" href="./layui/css/layui.css" />
+    <link rel="stylesheet" href="./css/home.css?v=2.1" />
+</head>
+
+<body>
+<header class="myheader animated top is_top_true">
+    <!-- 底部信息 -->
+    <div class="layui-container">
+        <div class="logo">
+            <a href="/" style="font-size: 24px;">
+               我的奋斗
+            </a>
+        </div>
+        <div class="left layui-hide-xs">
+            <ul class="layui-nav">
+                <li class="layui-nav-item layui-this">
+                    <a href="/">首页</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="#">文章</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="#">时光机</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:">实验&nbsp;<i class="layui-icon layui-icon-triangle-d"></i></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#" target="view_window">简单统计（按天）</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="#">留言</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="#">关于</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul class="layui-nav">
+                <li class="layui-nav-item layui-hide-sm layui-hide-md layui-hide-lg" id="navs">
+                    <a>
+                        <i class="layui-icon">&#xe65f;</i>
+                    </a>
+                </li>
+                <li id="login_no" class="layui-nav-item" style="display: none;">
+<!--
+                    <a onclick="return parent.location.href='/api/blog-web/oauth2/qqLogin'" href="javascript:;" id="login"><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/nologin.png" class="layui-nav-img">QQ登录</a>
+-->
+                    <!--<dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" id="login">立即登录</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" id="reg">点我注册</a>
+                        </dd>
+                    </dl>-->
+                </li>
+                <li id="login_yes" class="layui-nav-item" style="display: none;">
+                    <a><img id="figureurlQq1" class="layui-nav-img"><b id="nickname">您的昵称</b></a>
+                    <dl class="layui-nav-child">
+                        <!--
+                        <dd>
+                            <a href="javascript:;">绑定账号</a>
+                        </dd>
+                        -->
+                        <dd>
+                            <a href="javascript:;" id="login_out">退出</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- 轮播图 -->
+<div class="scorllimgs">
+    <img src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/background15.jpg" />
+</div>
+<div class="content">
+    <!-- 每日语录 -->
+    <div class="layui-container quoteoftheday layui-anim layui-anim-fadein">
+        <span class="quotetitle layui-unselect">每日语录：</span>
+        <i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
+        <a class="quotecontent" id="quotecontent">滴答~欢迎来到纯真年代个人博</a>
+    </div>
+    <!-- 帖子 -->
+    <div class="layui-container mycontent">
+        <div class="layui-row">
+            <div class="layui-col-md8 layui-col-sm8 layui-col-xs12 content-left">
+                <div class="infomation">
+                </div>
+                <ul class="post-list">
+                    <li class="post-one">
+                        <span class="label layui-unselect"><c>学习</c></span>
+                        <h3 class="title animated"><a class="animated" title="Spark Streaming整合Flume、Kafka案例实时数据处理" href="/article_detail/1540869901102">Spark Streaming整合Flume、Kafka案例实时数据处理</a></h3>
+                        <div class="article_lable_show layui-unselect">
+                            <span class="animated3" style="background-color: #d9de49;">Scala</span>
+                            <span class="animated3" style="background-color: #d439ff;">Spark Streaming</span>
+                            <span class="animated3" style="background-color: #9d14ff;">Flume</span>
+                            <span class="animated3" style="background-color: #ff00b3;">Kafka</span>
+                            <span class="animated3" style="background-color: #01bc94;">Shell</span>
+                        </div>
+                        <div class="post-desc">
+                            <div href="" class="summaryimg">
+                                <a href="#" title="Spark Streaming整合Flume、Kafka案例实时数据处理"><img title="Spark Streaming整合Flume、Kafka案例实时数据处理" alt="Spark Streaming整合Flume、Kafka案例实时数据处理" src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-10-30/anlilogo1.png" /></a>
+                            </div>
+                            <p class="post-desc-txt">本文基于Spark Streaming整合Flume、Kafka实现日志的实时微批处理</p>
+                            <div class="layui-clear"></div>
+                        </div>
+                        <div class="post-info">
+                            <p class="post-info-left">
+                                <a href="javascript:;">
+                                    <img title="纯真年代" src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/login.jpg" />
+                                    <span class="author">纯真年代</span>
+                                </a>
+                            </p>
+                            <p class="post-info-right layui-unselect">
+                                <a><i class="layui-icon">&#xe705;</i><span class="num">40</span></a>
+                                <a><i class="layui-icon">&#xe637;</i><span class="time">2018-10-30 11:25:01</span></a>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="post-one">
+                        <span class="label layui-unselect"><c>学习</c></span>
+                        <h3 class="title animated"><a class="animated" title="本站静态资源" href="/article_detail/1539228493879">本站静态资源</a></h3>
+                        <div class="article_lable_show layui-unselect">
+
+                        </div>
+                        <div class="post-desc">
+                            <div href="" class="summaryimg">
+                                <a href="#" title="本站静态资源"><img title="本站静态资源" alt="本站静态资源" src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-10-22/jintaiziyuan-logo.png" /></a>
+                            </div>
+                            <p class="post-desc-txt">本站主页背景图集 <b>129张</b>。动态视频<b>32个</b>，滑稽图<b>101张</b>
+                                <img style="max-width:24.1px" src="https://triedblog.oss-cn-beijing.aliyuncs.com/index_background/duck/duck6.gif" class="layui-nav-img"></p>
+                            <div class="layui-clear"></div>
+                        </div>
+                        <div class="post-info">
+                            <p class="post-info-left">
+                                <a href="javascript:;">
+                                    <img title="纯真年代" src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/login.jpg" />
+                                    <span class="author">纯真年代</span>
+                                </a>
+                            </p>
+                            <p class="post-info-right layui-unselect">
+                                <a><i class="layui-icon">&#xe705;</i><span class="num">107</span></a>
+                                <a><i class="layui-icon">&#xe637;</i><span class="time">2018-10-11 11:28:14</span></a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 分页 -->
+                <ul class="pagination">
+                    <li><a class="active" href="javascript:;">1</a></li>
+
+                    <li><a href="/index?page=2">2</a></li>
+
+                    <li><a href="/index?page=3">3</a></li>
+
+                    <li class="china"><a title="下一页" href="/index?page=2">下一页 <i class="layui-icon layui-icon-next"></i></a></li>
+
+                    <li class="info">
+                        共<b>3</b>页<b>21</b>条数据
+                    </li>
+                </ul>
+            </div>
+            <!-- 右边模块 -->
+            <div class="layui-col-md4 layui-col-sm4 layui-col-xs12 content-right">
+                <div>
+
+                    <!-- 文章标签 -->
+                    <div class="grid" id="grid">
+                        <h3></h3>
+                        <div class="content">
+                            <div class="myquote animated layui-unselect">
+                                没有什么比年轻时候的贫穷更理直气壮的
+                            </div>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="/article_list?type=index" atitle="文章">
+						<i class="layui-icon layui-bg-orange">&#xe60a;</i>
+						<b>21</b>
+						<b class="txt">文章</b>
+					</a>
+				</span>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="#right_fenlei" atitle="分类">
+						<i class="layui-icon layui-bg-green">&#xe61d;</i>
+						<b>2</b>
+						<b class="txt">分类</b>
+					</a>
+				</span>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4 no-right-border">
+					<a href="#right_labels" atitle="标签">
+						<i class="layui-icon layui-bg-cyan">&#xe64d;</i>
+						<b>18</b>
+						<b class="txt">标签</b>
+					</a>
+				</span>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="#foot_recentuser" atitle="用户">
+						<i class="layui-icon layui-bg-blue layui-icon-user"></i>
+						<b>34</b>
+						<b class="txt">用户</b>
+					</a>
+				</span>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="#" atitle="留言">
+						<i class="layui-icon" style="background: #7266BA;">&#xe611;</i>
+						<b>17</b>
+						<b class="txt">留言</b>
+					</a>
+				</span>
+                            <span class="layui-col-md4 layui-col-sm4 layui-col-xs4 no-right-border">
+					<a href="#right_youzan" atitle="友站">
+						<i class="layui-icon" style="background: #66DAFB;">&#xe650;</i>
+						<b>4</b>
+						<b class="txt">友站</b>
+					</a>
+				</span>
+                            <span class="layui-clear no-right-border"></span>
+                        </div>
+                    </div>
+
+                    <!-- 文章标签 -->
+                    <div class="flag" id="right_labels">
+                        <h3 class="layui-unselect">文章标签</h3>
+                        <div class="content">
+
+                            <a class="animated3" href="/label/1" title="springboot" style="background-color: #7b91fc;">springboot
+                                <span class="layui-bg-gray" style="font-size: 14px;padding:0 4px;border-radius: 2px;">0</span>
+                            </a>
+
+                            <a class="animated3" href="/label/29" title="Shell" style="background-color: #01bc94;">Shell
+                                <span class="layui-bg-gray" style="font-size: 14px;padding:0 4px;border-radius: 2px;">1</span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <!-- 文章分类 -->
+                    <div class="classify" id="right_fenlei">
+                        <h3 class="layui-unselect">文章分类</h3>
+                        <div class="content">
+
+                            <a href="/classify/4" title="学习笔记">学习笔记 (20)</a>
+
+                            <a href="/classify/25" title="公共资源">公共资源 (1)</a>
+
+                        </div>
+                    </div>
+                    <!-- 热门文章，后台通过点击量 -->
+                    <div class="hot-post">
+                        <h3 class="layui-unselect">热门文章</h3>
+                        <div class="content">
+                            <ul>
+
+                                <li class="animated8">
+                                    <a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计" target="_blank" class="thumbnail-link">
+                                        <img class="thumbnailside" title="Hadoop实战-浏览器统计" alt="Hadoop实战-浏览器统计" src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/5.jpg" width="46" height="46" style="overflow: hidden;" />
+                                    </a>
+                                    <div class="right-box">
+                                        <h4 class="title">
+                                            <a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计">Hadoop实战-浏览器统计</a>
+                                        </h4>
+                                        <p class="time">
+                                            <i class="layui-icon layui-icon-date"></i>
+                                            <a>2018-09-17 23:41:05</a>
+                                        </p>
+                                        <p class="view">
+                                            <i class="layui-icon layui-icon-read"></i>
+                                            <a>192</a>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 热门推荐文章，后台设置 -->
+                    <div class="re-post" id="right_youzan">
+                        <h3 class="layui-unselect">友站连接</h3>
+                        <div class="content">
+                            <ol>
+                                <div class="layui-row">
+                                    <div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                        <li>
+                                            <img title="我的CSDN" alt="我的CSDN" src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/public-ico/csdn-favicon.ico" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
+                                            <a title="我的CSDN" target="_blank" href="https://blog.csdn.net/qq_33396608">我的CSDN</a>
+                                        </li>
+                                    </div>
+                                    <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                        <li>
+                                            <a title="留言或者@1396513066" target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=1396513066&site=qq&menu=yes">留言或@1396513066</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- 热门推荐文章，后台设置 -->
+                    <div class="re-post">
+                        <h3 class="layui-unselect">活动</h3>
+                        <div class="content">
+                            <ol>
+                                <div class="layui-row">
+                                    <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                        <li>
+                                            <a target="_blank" href="https://promotion.aliyun.com/ntms/act/campus2018.html?userCode=7ulkk1gd">阿里云学生价（24岁以下自动获得学生身份）</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- google广告 -->
+                    <!--<div class="re-post">
+                        <div class="content" style="padding-left: 10px;text-align: center;overflow:hidden;">
+                            <ol>
+                                <div class="layui-row">
+                                    <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                        &lt;!&ndash; 右边导航广告 &ndash;&gt;
+                                        <ins class="adsbygoogle"
+                                             style="display:block"
+                                             data-ad-client="ca-pub-8186665406720470"
+                                             data-ad-slot="1658992109"
+                                             data-ad-format="auto"
+                                             data-full-width-responsive="true"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
+                                    </div>
+                                </div>
+                            </ol>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部信息 -->
+<footer class="footer">
+    <div class="footavatar">
+        <ul class="footinfo">
+            <p class="fname">
+                <a href="javascript:;">偶尔有点困</a>
+            </p>
+            <p class="finfo">性别：^_^ 年龄：^_^</p>
+            <p>现居：^_^</p>
+        </ul>
+    </div>
+
+
+    <div class="recentuser layui-hide-xs" id="foot_recentuser">
+        <p>最近访客</p>
+        <ul>
+            <li>
+                <img src="https://thirdqq.qlogo.cn/qqapp/101486279/5B6CF46C3FF49F00D2D0F0398074924D/40" alt="JESS" title="JESS" />
+                <div class="recent_nickname">JESS</div>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div class="info">
+        <p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
+        <span><a>© 2018 纯真年代-博客</a></span>
+        <span><a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备123123</a></span>
+        <span class="no-right-border"><a href="/login" target="_blank">后台登录</a></span>
+        <span class="layui-clear no-right-border"></span>
+    </div>
+</footer>
+<ul class="layui-fixbar" style="display: none;">
+    <li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+</ul>
+
+</body>
+<script type="text/javascript" src="./layui/layui.js"></script>
+<script type="text/javascript" src="./js/public.js" ></script>
+</html>
